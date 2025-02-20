@@ -1,9 +1,9 @@
 import "./common.js";
 import { createApp } from "vue";
-import { Plan } from "pev2";
+import { Plan } from "duckdb-explain-visualizer";
 import { ref } from "vue";
 
-import "pev2/dist/style.css";
+import "duckdb-explain-visualizer/dist/style.css";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
@@ -17,7 +17,7 @@ const app = createApp({
     return { plan };
   },
   components: {
-    pev2: Plan,
+    "duckdb-explain-visualizer": Plan,
   },
 });
 app.component("font-awesome-icon", FontAwesomeIcon);
