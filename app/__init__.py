@@ -9,10 +9,15 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField
 from wtforms.validators import DataRequired
 
+from werkzeug.middleware.proxy_fix import ProxyFix
+
 app = Flask(__name__, instance_relative_config=True)
 
 app.config.from_object("config")
 app.config.from_pyfile("config.py", silent=True)
+
+app.wsgi_app = ProxyFix(
+    app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
