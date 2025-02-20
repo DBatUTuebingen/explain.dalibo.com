@@ -18,7 +18,8 @@
 
     <title>{% block title %}{% endblock %} --fill-domain-here--</title>
 
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_pev2.svg') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='img/logo_pev2.svg') }}" color="#fff000">
     {% if config.DEBUG %}
     <script type="module" src="http://localhost:5173/app/static/js/{{ asset }}.js"></script>
     {% else %}

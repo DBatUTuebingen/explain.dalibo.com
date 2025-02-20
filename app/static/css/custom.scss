@@ -1,5 +1,6 @@
-$primary: #774b85 !default;
-$dark: darken($primary, 15%) !default;
+$primary: #fff000 !default;
+// $dark: darken($primary, 15%) !default;
+$dark: #000000 !default;
 $link-color: #007bff;
 $body-color: #495057;
 @import 'node_modules/bootstrap/scss/bootstrap';
@@ -19,6 +20,11 @@ $body-color: #495057;
 .tippy-box {
   background-color: $dark !important;
 }
+
 .tippy-arrow {
+  color: $dark !important;
+}
+
+.nav-pills .nav-link.active {
   color: $dark !important;
 }

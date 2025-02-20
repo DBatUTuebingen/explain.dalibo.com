@@ -1,0 +1,1 @@
+import{l as a,f as n,F as p}from"./about-BxjpvSmb.js";import{J as t,r}from"./vue-C1zYpduk.js";import{F as e}from"./pev2-B36MXj4y.js";a.add(n);const o=t({setup(){return{plan:r(planData)}},components:{pev2:e}});o.component("font-awesome-icon",p);o.mount("#app");
