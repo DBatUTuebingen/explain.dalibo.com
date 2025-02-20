@@ -1,14 +1,14 @@
 {
-  "_lodash-CXGpkqCe.js": {
-    "file": "assets/lodash-CXGpkqCe.js",
-    "name": "lodash"
-  },
-  "_pev2-B36MXj4y.js": {
-    "file": "assets/pev2-B36MXj4y.js",
-    "name": "pev2",
+  "_duckdb-explain-visualizer-DYXT6xM0.js": {
+    "file": "assets/duckdb-explain-visualizer-DYXT6xM0.js",
+    "name": "duckdb-explain-visualizer",
     "imports": [
       "_vue-C1zYpduk.js"
     ]
+  },
+  "_lodash-CXGpkqCe.js": {
+    "file": "assets/lodash-CXGpkqCe.js",
+    "name": "lodash"
   },
   "_vue-C1zYpduk.js": {
     "file": "assets/vue-C1zYpduk.js",
@@ -38,14 +38,14 @@
     ]
   },
   "app/static/js/plan.js": {
-    "file": "assets/plan-CFk4c0_V.js",
+    "file": "assets/plan-DPI83EAk.js",
     "name": "plan",
     "src": "app/static/js/plan.js",
     "isEntry": true,
     "imports": [
       "app/static/js/common.js",
       "_vue-C1zYpduk.js",
-      "_pev2-B36MXj4y.js"
+      "_duckdb-explain-visualizer-DYXT6xM0.js"
     ],
     "css": [
       "assets/plan-pO7mJAcn.css"

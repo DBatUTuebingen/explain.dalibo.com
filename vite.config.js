@@ -29,7 +29,7 @@ export default defineConfig({
           // Split external library from transpiled code.
           lodash: ["lodash"],
           vue: ["vue"],
-          pev2: ["pev2"],
+          "duckdb-explain-visualizer": ["duckdb-explain-visualizer"],
         },
       },
     },
