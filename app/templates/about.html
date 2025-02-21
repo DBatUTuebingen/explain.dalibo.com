@@ -7,8 +7,7 @@ About |
 {% endblock %}
 
 {% block body %}
-<link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/github.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/github.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <div class="container mt-2">
@@ -29,16 +28,20 @@ About |
         About
       </h2>
       <p>
-        This service lets you analyze, visualize and share <!--<a href="http://www.postgresql.org/docs/current/static/sql-explain.html">-->DuckDB Query Plans<!--</a>-->. It will compute and highlight the most important information to make them easier to understand.
+        This service lets you analyze, visualize and share
+        <!--<a href="http://www.postgresql.org/docs/current/static/sql-explain.html">-->DuckDB Query Plans<!--</a>-->.
+        It will compute and highlight the most important information to make them easier to understand.
       </p>
       <p>
-        It is brought to you by <a href="https://github.com/DBatUTuebingen" class="font-weight-bold">Database Systems Research Group @ University of Tübingen</a>.
+        It is brought to you by <a href="https://github.com/DBatUTuebingen" class="font-weight-bold">Database Systems
+          Research Group @ University of Tübingen</a>.
       </p>
       <h3>
         Acknowledgements
       </h3>
       <p>
-        This project is based on <a href="https://explain.dalibo.com">Postgres Explain Visualizer 2 (pev2)</a> by <a href="https://dalibo.com">Dalibo</a>.
+        This project is based on <a href="https://explain.dalibo.com">Postgres Explain Visualizer 2 (pev2)</a> by <a
+          href="https://dalibo.com">Dalibo</a>.
       </p>
       <h3>
         How To Use
@@ -48,9 +51,11 @@ About |
       </h4>
       <p>
         To get a <code>JSON</code> execution plan you can use: <br>
-        <code>EXPLAIN (FORMAT JSON) [your-query-here]</code> or to have it more detailed <code>EXPLAIN (ANALYZE, FORMAT JSON) [your-query-here]</code>. <br>
+        <code>EXPLAIN (FORMAT JSON) [your-query-here]</code> or to have it more detailed
+        <code>EXPLAIN (ANALYZE, FORMAT JSON) [your-query-here]</code>. <br>
         <br>
-        To get the most out of it, we recommend generating the plan using the following lines in any terminal running the <em>DuckDB CLI</em>: <br>
+        To get the most out of it, we recommend generating the plan using the following lines in any terminal running
+        the <em>DuckDB CLI</em>: <br>
         <code>PRAGMA enable_profiling = 'json';</code> <br>
         <code>PRAGMA profiling_output = '/path/to/file.json';</code> (optional) <br>
         <code>[your-query-here]</code> <br>
@@ -72,7 +77,7 @@ About |
       <pre><code class="html">&lt;form action=&quot;{{ url_for('new', _external=True) }}&quot; method=&quot;POST&quot;&gt;
         &lt;input type=&quot;text&quot; name=&quot;title&quot; value=&quot;A title for the plan&quot;/&gt;
         &lt;textarea name=&quot;plan&quot; rows=&quot;10&quot; cols=&quot;50&quot;&gt;
-        Seq Scan on tenk1  (cost=0.00..333.00 rows=10000 width=148)
+            { &quot;name&quot;: &quot;GENERATE_SERIES &quot;, &quot;children&quot;: [], &quot;extra_info&quot;: { &quot;Function&quot;: &quot;GENERATE_SERIES&quot;, &quot;Estimated Cardinality&quot;: &quot;9&quot; } }
         &lt;/textarea&gt;
         &lt;textarea name=&quot;query&quot; cols=&quot;50&quot;&gt;&lt;/textarea&gt;
         &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
@@ -80,16 +85,21 @@ About |
       <p>
         Here's an example using <em>cURL</em>:
         <br>
-        <code class="text-muted bg-light d-block">$ curl -Ls -w %{url_effective} -d '{"plan":"Seq Scan on tenk1  (cost=0.00..333.00 rows=10000 width=148)", "title": "My simple plan", "query": "The corresponding query"}' -H "Content-Type: application/json" -X POST {{ url_for('new', _external=True) }} -o /dev/null</code>
+        <code
+          class="text-muted bg-light d-block">$ curl -Ls -w %{url_effective} -d '{"plan":"{ "name": "GENERATE_SERIES ", "children": [], "extra_info": { "Function": "GENERATE_SERIES", "Estimated Cardinality": "9" } }", "title": "My simple plan", "query": "The corresponding query"}' -H "Content-Type: application/json" -X POST {{ url_for('new', _external=True) }} -o /dev/null</code>
       </p>
       <h3>
         Help us improve this service
       </h3>
       <p>
-        This application uses <a href="https://github.com/DBatUTuebingen/pev2" class="font-weight-bold">DEV</a> JS library to analyze and display the plan.
+        This application uses the <a href="https://github.com/DBatUTuebingen/duckdb-explain-visualizer"
+          class="font-weight-bold">duckdb-explain-visualizer</a> JS
+        library to analyze and display the plan.
       </p>
       <p>
-        Please report bugs on <a href="https://github.com/DBatUTuebingen/pev2/issues"><i class="fab fa-github"></i> GitHub</a>.
+        Please report bugs on <a href="https://github.com/DBatUTuebingen/duckdb-explain-visualizer/issues"><i
+            class="fab fa-github"></i>
+          GitHub</a>.
       </p>
       <h3 id="retention">
         Data retention policy
@@ -106,10 +116,10 @@ About |
       <p>
         You can delete the saved plans using the list shown in the home page. Make sure you're using the same browser.
       </p>
-<!--      <h4>Standalone version</h4>-->
-<!--      <p>-->
-<!--        You may preferably use a standalone (<i>browser only</i>) version of this app. Simply download this <a href="https://www.github.com/dalibo/pev2/releases/latest/download/index.html">HTML file</a> and run it in your browser.-->
-<!--      </p>-->
+      <!--      <h4>Standalone version</h4>-->
+      <!--      <p>-->
+      <!--        You may preferably use a standalone (<i>browser only</i>) version of this app. Simply download this <a href="https://www.github.com/dalibo/pev2/releases/latest/download/index.html">HTML file</a> and run it in your browser.-->
+      <!--      </p>-->
     </div>
   </div>
 </div>
