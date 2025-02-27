@@ -166,7 +166,7 @@ const app = createApp({
           );
 
           // redirect to page with plan from server
-          window.location.href = "/plan/" + data.id;
+          window.location.href = "/explain/plan/" + data.id;
         });
     }
 
