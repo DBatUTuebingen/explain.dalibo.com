@@ -1,0 +1,1 @@
+import{l as o,f as n,F as p}from"./about-BxjpvSmb.js";import{J as r,r as t}from"./vue-C1zYpduk.js";import{B as e}from"./duckdb-explain-visualizer-DfkPNn2e.js";o.add(n);const a=r({setup(){return{plan:t(planData)}},components:{"duckdb-explain-visualizer":e}});a.component("font-awesome-icon",p);a.mount("#app");

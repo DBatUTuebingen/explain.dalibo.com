@@ -19,7 +19,8 @@ let deleteModal;
 const app = createApp({
   setup() {
     const samples = [
-      ["NO SAMPLES YET", null, null],
+      ["TPCH Q7 sf 0.1 WASM", "tpch_7.json", "tpch_7.sql"],
+      ["TPCH Q21 sf 0.1 WASM", "tpch_21.json", "tpch_21.sql"],
     ];
     const titleInput = ref("");
     const planInput = ref("");
