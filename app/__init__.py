@@ -11,6 +11,21 @@ from wtforms.validators import DataRequired
 
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+
+class ScriptNameFallbackMiddleware:
+    def __init__(self, app, script_name):
+        self.app = app
+        self.script_name = (script_name or "").rstrip("/")
+
+    def __call__(self, environ, start_response):
+        if self.script_name and not environ.get("SCRIPT_NAME"):
+            environ["SCRIPT_NAME"] = self.script_name
+            path_info = environ.get("PATH_INFO", "")
+            if path_info.startswith(self.script_name):
+                stripped = path_info[len(self.script_name):]
+                environ["PATH_INFO"] = stripped if stripped else "/"
+        return self.app(environ, start_response)
+
 app = Flask(__name__, instance_relative_config=True)
 
 app.config.from_object("config")
@@ -18,6 +33,8 @@ app.config.from_pyfile("config.py", silent=True)
 
 app.wsgi_app = ProxyFix(
     app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
+app.wsgi_app = ScriptNameFallbackMiddleware(
+    app.wsgi_app, app.config.get("SCRIPT_NAME", ""))
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

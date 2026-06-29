@@ -5,22 +5,44 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "5001:5000"
     links:
       - postgres:postgres
     volumes:
       - .:/app
     environment:
       DB_SERVICE: postgres
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.explain.loadbalancer.server.port=5000"
+
+      - "traefik.http.routers.explain.rule=Host(`localhost`) && PathPrefix(`/explain`)"
+      - "traefik.http.routers.explain.entrypoints=websecure"
+      - "traefik.http.routers.explain.tls=true"
+      - "traefik.http.routers.explain.service=explain"
+      - "traefik.http.routers.explain.tls.certresolver=letsencrypt"
+    networks:
+      - internal
+      - frontend
+      - backend
 
   postgres:
     restart: always
-    image: postgres:latest
+    image: postgres:17
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgres
+    networks:
+      - internal
+      - backend
 
 volumes:
   db-data:
+
+networks:
+  internal:
+    external: false
+  frontend:
+    external: true
+  backend:
+    external: true
