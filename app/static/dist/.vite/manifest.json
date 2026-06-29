@@ -1,6 +1,6 @@
 {
-  "_duckdb-explain-visualizer-DfkPNn2e.js": {
-    "file": "assets/duckdb-explain-visualizer-DfkPNn2e.js",
+  "_duckdb-explain-visualizer-C7zVpYZN.js": {
+    "file": "assets/duckdb-explain-visualizer-C7zVpYZN.js",
     "name": "duckdb-explain-visualizer",
     "imports": [
       "_vue-C1zYpduk.js"
@@ -38,17 +38,17 @@
     ]
   },
   "app/static/js/plan.js": {
-    "file": "assets/plan-CtQsxzxb.js",
+    "file": "assets/plan-Bc-_fAnK.js",
     "name": "plan",
     "src": "app/static/js/plan.js",
     "isEntry": true,
     "imports": [
       "app/static/js/common.js",
       "_vue-C1zYpduk.js",
-      "_duckdb-explain-visualizer-DfkPNn2e.js"
+      "_duckdb-explain-visualizer-C7zVpYZN.js"
     ],
     "css": [
-      "assets/plan-pO7mJAcn.css"
+      "assets/plan-BUcYz_P3.css"
     ]
   }
 }
